@@ -2,9 +2,567 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Yuvindi Ranodya | Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* ---------- Base ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 80px;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 40px;
+            padding: 14px 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-icons i {
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icons i:hover {
+            color: #ff5252;
+            transform: scale(1.1);
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 100px;
+            padding: 100px 60px 60px;
+            min-height: 90vh;
+        }
+
+        .hero-left h1 {
+            font-size: 9rem;
+            line-height: 8rem;
+            color: #b22222;
+            font-weight: 400;
+            text-align: right;
+        }
+
+        .hero-right {
+            max-width: 550px;
+        }
+
+        .hero-right p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            line-height: 2rem;
+            letter-spacing: 0.05rem;
+            margin-bottom: 15px;
+        }
+
+        .small-text {
+            font-size: 0.95rem;
+            color: #bbbbbb;
+            margin-bottom: 0;
+        }
+
+        /* ---------- Social & CV ---------- */
+        .social-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff5252;
+        }
+
+        .btn {
+            background-color: #ffffff;
+            color: #000;
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff5252;
+            color: #fff;
+        }
+
+        /* ---------- About ---------- */
+        .about-section {
+            padding: 80px 60px;
+            background-color: #0d0d0d;
+        }
+
+        .about-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 100px;
+        }
+
+        .about-text-content {
+            flex-basis: 60%;
+            max-width: 600px;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            color: #b22222;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .about-text-content p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            margin-top: 25px;
+            border: 1px solid #ffffff1a;
+        }
+
+        .about-image-container {
+            flex-basis: 40%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 250px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 125px / 175px;
+            border: 3px solid #b22222;
+        }
+
+        /* ---------- Skills ---------- */
+        .skills-section {
+            text-align: center;
+            padding: 100px 60px;
+            background-color: #111;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: #b22222;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .skill-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .skill-tab {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tab.active,
+        .skill-tab:hover {
+            background: #ff5252;
+            border-color: #ff5252;
+        }
+
+        .skill-content {
+            display: none;
+        }
+
+        .skill-content.active {
+            display: block;
+        }
+
+        .skill-icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .skill-icon-item {
+            text-align: center;
+        }
+
+        .skill-icon-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        /* ---------- Projects ---------- */
+        .projects-section {
+            padding: 80px 60px;
+            background-color: #0d0d0d;
+            text-align: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            border: 1px solid #ffffff1a;
+            padding: 30px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .project-tag {
+            font-size: 0.9rem;
+            color: #ff5252;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-project {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .code-btn {
+            background-color: #444;
+            border: 1px solid #444;
+            color: #fff;
+        }
+
+        .code-btn:hover {
+            background-color: #555;
+        }
+
+        .demo-btn {
+            background-color: transparent;
+            color: #ff5252;
+            border: 1px solid #ff5252;
+        }
+
+        .demo-btn:hover {
+            background-color: #ff5252;
+            color: #0d0d0d;
+        }
+
+        /* ---------- Footer ---------- */
+        .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background-color: #1a1a1a;
+            border-top: 1px solid #ffffff1a;
+            font-size: 0.9rem;
+        }
+
+        .footer-socials a {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: #ff5252;
+        }
+
+        .copyright {
+            color: #ffffff99;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 900px) {
+            header {
+                padding: 20px 30px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+                padding-top: 150px;
+            }
+
+            .hero-left h1 {
+                font-size: 5rem;
+                line-height: 4.5rem;
+                text-align: center;
+            }
+
+            .about-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .site-footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad commodi, dicta dolore dolores ea est ex facilis fugiat inventore maiores minus nemo officiis pariatur praesentium quidem quo, quos reiciendis!</p>
+<!-- ---------- Header ---------- -->
+<header>
+    <div class="logo">Yuvindi</div>
+    <div class="nav-icons">
+        <i class="fa-solid fa-house"></i>
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-briefcase"></i>
+        <i class="fa-solid fa-image"></i>
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+</header>
+
+<!-- ---------- Hero ---------- -->
+<section class="hero">
+    <div class="hero-left">
+        <h1>Yuvindi<br>Ranodya</h1>
+    </div>
+    <div class="hero-right">
+        <p>Software Engineering student passionate about building modern, user-friendly applications.</p>
+        <p class="small-text">I design and build digital solutions that make life simpler.</p>
+
+        <div class="social-section">
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <a href="#" class="btn">View CV</a>
+        </div>
+    </div>
+</section>
+
+<!-- ---------- About ---------- -->
+<section class="about-section" id="about">
+    <div class="about-wrapper">
+        <div class="about-text-content">
+            <h2 class="about-title">About Me</h2>
+            <p>Hi, I’m a Software Engineering student passionate about building user-friendly apps.</p>
+            <p>Still learning Java, SQL, and front-end design, but already excited to create and build what’s next.</p>
+            <p>I enjoy solving real-world problems with clean, modern code.</p>
+
+            <div class="location-badge">
+                <i class="fas fa-globe-americas"></i> Galle, Sri Lanka
+            </div>
+        </div>
+
+        <div class="about-image-container">
+            <img src="assets/images/profile.png" alt="Yuvindi Ranodya" class="profile-photo">
+        </div>
+    </div>
+</section>
+
+<!-- ---------- Skills ---------- -->
+<section class="skills-section" id="skills">
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skill-tabs">
+        <button class="skill-tab active">Languages</button>
+        <button class="skill-tab">Tools</button>
+        <button class="skill-tab">Designs</button>
+    </div>
+
+    <div class="skill-content active" id="languages">
+        <div class="skill-icons-row">
+            <div class="skill-icon-item">
+                <img src="path/to/java-icon.png" alt="Java Logo">
+                <p>Java</p>
+            </div>
+            <div class="skill-icon-item">
+                <img src="path/to/python-icon.png" alt="Python Logo">
+                <p>Python</p>
+            </div>
+            <div class="skill-icon-item">
+                <img src="path/to/js-icon.png" alt="JavaScript Logo">
+                <p>JavaScript</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="skill-content" id="tools">
+        <p>VS Code, GitHub, IntelliJ IDEA, MySQL Workbench</p>
+    </div>
+
+    <div class="skill-content" id="designs">
+        <p>Figma, Canva, Photoshop</p>
+    </div>
+</section>
+
+<!-- ---------- Projects ---------- -->
+<section class="projects-section" id="projects">
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3 class="project-title">Construction Management (MVC)</h3>
+            <p class="project-tag">JavaFX + SQL</p>
+            <p class="project-description">
+                A JavaFX + SQL app to manage employees, projects, and resources efficiently with a modern UI and smooth database integration.
+            </p>
+            <div class="project-actions">
+                <a href="#" class="btn-project code-btn"><i class="fas fa-code"></i> Code</a>
+                <a href="#" class="btn-project demo-btn"><i class="fas fa-desktop"></i> Demo</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3 class="project-title">Library Pro</h3>
+            <p class="project-tag">Java + JDBC</p>
+            <p class="project-description">
+                A desktop solution built with Java and JDBC to modernize library operations — from book management to borrowing automation.
+            </p>
+            <div class="project-actions">
+                <a href="#" class="btn-project code-btn"><i class="fas fa-code"></i> Code</a>
+                <a href="#" class="btn-project demo-btn"><i class="fas fa-desktop"></i> Demo</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3 class="project-title">Construction Management (Layered)</h3>
+            <p class="project-tag">JavaFX + Layered Architecture</p>
+            <p class="project-description">
+                Built using a layered architecture with SQL integration — focusing on scalability, modularity, and professional UI.
+            </p>
+            <div class="project-actions">
+                <a href="#" class="btn-project code-btn"><i class="fas fa-code"></i> Code</a>
+                <a href="#" class="btn-project demo-btn"><i class="fas fa-desktop"></i> Demo</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ---------- Footer ---------- -->
+<footer class="site-footer">
+    <div class="footer-socials">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <p class="copyright">© 2025 Yuvindi Ranodya. All rights reserved.</p>
+</footer>
+
+<!-- ---------- Script for Tabs ---------- -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.skill-tab');
+        const contents = document.querySelectorAll('.skill-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                const targetId = tab.textContent.toLowerCase();
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    });
+</script>
 </body>
 </html>
